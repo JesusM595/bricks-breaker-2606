@@ -43,7 +43,7 @@ void Game::ResetBall()
 	ball.y_position = paddle.y_position - 1;
 	ball.x_velocity = rand() % 2 ? 1 : -1;
 	ball.y_velocity = -1;
-	ball.moving = false;
+	ball.moving = true;
 }
 
 bool Game::Update()
@@ -134,7 +134,7 @@ void Game::CheckCollision()
 	}
 
 	// TODO #7 - If ball touches bottom of window, pause ball and display (render) defeat text with R to reset
-	if (ball.y_position + ball.y_velocity >= WINDOW_HEIGHT)
+	if (ball.y_position >= WINDOW_HEIGHT)
 	{
 		ball.moving = false;
 		loss = true;
