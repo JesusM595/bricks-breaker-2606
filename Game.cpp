@@ -9,7 +9,7 @@ Game::Game()
 void Game::Reset()
 {
 	win = false;
-	bool loss = false;
+	loss = false;
 
 	Console::SetWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 	Console::CursorVisible(false);
@@ -85,11 +85,11 @@ void Game::Render() const
 	
 	if (win == true)
 	{
-		std::cout << "You win! Press 'R' to play again.";
+		Console::WordWrap(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, 40, "You win! Press 'R' to play again.");
 	}
 	if (loss == true)
 	{
-		std::cout << "You lose. Press 'R' to play again.";
+		Console::WordWrap(WINDOW_WIDTH / 2, WINDOW_HEIGHT / 2, 40, "You lose. Press 'R' to play again.");
 	}
 
 	Console::Lock(false);
@@ -134,7 +134,7 @@ void Game::CheckCollision()
 	}
 
 	// TODO #7 - If ball touches bottom of window, pause ball and display (render) defeat text with R to reset
-	if (ball.y_position >= WINDOW_HEIGHT)
+	if (ball.y_position + ball.y_velocity >= WINDOW_HEIGHT)
 	{
 		ball.moving = false;
 		loss = true;
