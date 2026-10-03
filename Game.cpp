@@ -83,6 +83,14 @@ void Game::Render() const
 		brick.Draw();
 	}
 	
+	if (win == true)
+	{
+		std::cout << "You win! Press 'R' to play again.";
+	}
+	if (loss == true)
+	{
+		std::cout << "You lose. Press 'R' to play again.";
+	}
 
 	Console::Lock(false);
 }
@@ -110,14 +118,6 @@ void Game::CheckCollision()
 		else
 		{
 			++it;
-		}
-		if (win = true)
-		{
-			std::cout << "You win! Press 'R' to play again.";
-		}
-		if (loss = true)
-		{
-			std::cout << "You lose. Press 'R' to play again.";
 		}
 	}
 
