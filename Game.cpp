@@ -134,7 +134,7 @@ void Game::CheckCollision()
 	}
 
 	// TODO #7 - If ball touches bottom of window, pause ball and display (render) defeat text with R to reset
-	if (ball.y_position >= WINDOW_HEIGHT)
+	if (ball.y_position + ball.y_velocity >= WINDOW_HEIGHT)
 	{
 		ball.moving = false;
 		loss = true;
